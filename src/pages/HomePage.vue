@@ -20,15 +20,19 @@
         <div class="divider-line divider-flow h-px"></div>
       </div>
       <p class="rise-3 bright-cyan-text text-base font-semibold lowercase tracking-[0.35em] sm:text-lg">dev</p>
-      <router-link
-        to="/contact"
-        class="rise-4 relative z-10 mt-6 border border-cyan-300/70 bg-[#0a2b38] px-6 py-2 text-sm font-semibold lowercase tracking-[0.18em] !text-white transition-colors duration-300 hover:bg-[#0f3b4c] hover:!text-white sm:text-base"
-        :style="ctaTiltStyle"
+      <div
+        class="relative z-10 mt-6 inline-flex transform-gpu transition-[transform,box-shadow] duration-200 ease-out will-change-transform hover:shadow-[inset_0_0_0_1px_rgba(140,245,255,0.55)]"
+        :style="{ transform: ctaTiltTransform }"
         @mousemove="onCtaMove"
         @mouseleave="onCtaLeave"
       >
-        contact me
-      </router-link>
+        <router-link
+          to="/contact"
+          class="rise-4 inline-flex border border-cyan-300/70 bg-[#0a2b38] px-6 py-2 text-sm font-semibold lowercase tracking-[0.18em] !text-white transition-[background-color,color] duration-150 ease-out hover:bg-[#0f3b4c] hover:!text-white sm:text-base"
+        >
+          contact me
+        </router-link>
+      </div>
     </div>
   </section>
 </template>
@@ -44,10 +48,7 @@ const heroTargetX = ref(0)
 const heroTargetY = ref(0)
 const smoothScrollY = ref(0)
 const targetScrollY = ref(0)
-const ctaTiltX = ref(0)
-const ctaTiltY = ref(0)
-const ctaTiltTargetX = ref(0)
-const ctaTiltTargetY = ref(0)
+const ctaTiltTransform = ref('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)')
 let motionRaf = 0
 let prevHtmlOverflowY = ''
 let prevBodyOverflowY = ''
@@ -55,11 +56,6 @@ let prevBodyOverflowY = ''
 const heroFollowStyle = computed(() => ({
   '--grid-parallax': `${smoothScrollY.value * 0.42}px`,
   transform: `translate3d(${heroX.value}px, ${heroY.value + smoothScrollY.value * 0.36}px, 0)`
-}))
-
-const ctaTiltStyle = computed(() => ({
-  transform: `perspective(900px) rotateX(${ctaTiltX.value}deg) rotateY(${ctaTiltY.value}deg) translateZ(0)`,
-  willChange: 'transform'
 }))
 
 const updateHeroGridLight = (clientX, clientY) => {
@@ -90,13 +86,13 @@ const onCtaMove = (event) => {
   const rect = event.currentTarget.getBoundingClientRect()
   const nx = (event.clientX - rect.left) / rect.width - 0.5
   const ny = (event.clientY - rect.top) / rect.height - 0.5
-  ctaTiltTargetY.value = nx * 9
-  ctaTiltTargetX.value = -ny * 7
+  const ex = Math.sign(nx) * Math.pow(Math.abs(nx), 0.85)
+  const ey = Math.sign(ny) * Math.pow(Math.abs(ny), 0.85)
+  ctaTiltTransform.value = `perspective(1000px) rotateX(${-ey * 30}deg) rotateY(${ex * 40}deg) translateZ(0)`
 }
 
 const onCtaLeave = () => {
-  ctaTiltTargetX.value = 0
-  ctaTiltTargetY.value = 0
+  ctaTiltTransform.value = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)'
 }
 
 const onWindowPointerMove = (event) => {
@@ -115,8 +111,6 @@ const onWindowScroll = () => {
 const smoothStep = () => {
   heroX.value += (heroTargetX.value - heroX.value) * 0.18
   heroY.value += (heroTargetY.value - heroY.value) * 0.18
-  ctaTiltX.value += (ctaTiltTargetX.value - ctaTiltX.value) * 0.22
-  ctaTiltY.value += (ctaTiltTargetY.value - ctaTiltY.value) * 0.22
   smoothScrollY.value += (targetScrollY.value - smoothScrollY.value) * 0.08
   motionRaf = requestAnimationFrame(smoothStep)
 }
