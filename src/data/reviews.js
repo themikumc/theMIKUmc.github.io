@@ -8,14 +8,14 @@ export const reviews = [
   },
   {
     id: 2,
-    name: 'leirdo weirdo',
+    name: 'leirdoTHEweirdo',
     role: 'private smp host',
     rating: 5,
     quote: 'my friends and i decided to commission miku for a modpack and it turned out crazy good in such a short amount of time. will definitely order again'
   },
   {
     id: 3,
-    name: 'chocolatedesecration007',
+    name: 'chocolate_desecration007',
     role: 'saturn smp owner',
     rating: 5,
     quote: 'i dont even know what to say, i commissioned him for a three page google doc plugin and he made every detail to perfection. love this miku guy'

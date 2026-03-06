@@ -7,12 +7,12 @@
   >
     <div class="mb-5 flex items-center gap-1">
       <span
-        v-for="star in 5"
-        :key="star"
-        class="text-xl leading-none"
-        :class="star <= (review.rating ?? 5) ? 'text-cyan-200' : 'text-slate-600'"
+        v-for="(fill, index) in starFills"
+        :key="index"
+        class="relative inline-block text-xl leading-none text-slate-600"
       >
         ★
+        <span class="absolute left-0 top-0 overflow-hidden text-cyan-200" :style="{ width: `${fill * 100}%` }">★</span>
       </span>
     </div>
     <p class="mb-6 text-lg leading-relaxed text-slate-100 sm:text-xl">"{{ review.quote }}"</p>
@@ -24,14 +24,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
-defineProps({
+const props = defineProps({
   review: {
     type: Object,
     required: true
   }
 })
+
+const rating = computed(() => {
+  const value = Number(props.review.rating ?? 5)
+  if (Number.isNaN(value)) return 5
+  return Math.max(0, Math.min(5, value))
+})
+
+const starFills = computed(() =>
+  Array.from({ length: 5 }, (_, index) => Math.max(0, Math.min(1, rating.value - index)))
+)
 
 const tiltTransform = ref('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)')
 
