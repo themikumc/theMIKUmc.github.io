@@ -22,12 +22,17 @@ html {
   overflow-x: hidden;
   background: #000;
   scrollbar-width: thin;
+  overscroll-behavior-y: none;
 }
 
 body,
 #app {
   background: #000;
   overflow-x: hidden;
+}
+
+body {
+  overscroll-behavior-y: none;
 }
 
 ::-webkit-scrollbar {
