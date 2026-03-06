@@ -1,3 +1,3 @@
 # theMIKUmc
 
-## my own dev portfolio!
+my own dev portfolio!
