@@ -23,6 +23,9 @@
       <router-link
         to="/contact"
         class="rise-4 relative z-10 mt-6 border border-cyan-300/70 bg-[#0a2b38] px-6 py-2 text-sm font-semibold lowercase tracking-[0.18em] !text-white transition-colors duration-300 hover:bg-[#0f3b4c] hover:!text-white sm:text-base"
+        :style="ctaTiltStyle"
+        @mousemove="onCtaMove"
+        @mouseleave="onCtaLeave"
       >
         contact me
       </router-link>
@@ -41,6 +44,10 @@ const heroTargetX = ref(0)
 const heroTargetY = ref(0)
 const smoothScrollY = ref(0)
 const targetScrollY = ref(0)
+const ctaTiltX = ref(0)
+const ctaTiltY = ref(0)
+const ctaTiltTargetX = ref(0)
+const ctaTiltTargetY = ref(0)
 let motionRaf = 0
 let prevHtmlOverflowY = ''
 let prevBodyOverflowY = ''
@@ -48,6 +55,11 @@ let prevBodyOverflowY = ''
 const heroFollowStyle = computed(() => ({
   '--grid-parallax': `${smoothScrollY.value * 0.42}px`,
   transform: `translate3d(${heroX.value}px, ${heroY.value + smoothScrollY.value * 0.36}px, 0)`
+}))
+
+const ctaTiltStyle = computed(() => ({
+  transform: `perspective(900px) rotateX(${ctaTiltX.value}deg) rotateY(${ctaTiltY.value}deg) translateZ(0)`,
+  willChange: 'transform'
 }))
 
 const updateHeroGridLight = (clientX, clientY) => {
@@ -74,6 +86,19 @@ const onHeroLeave = () => {
   heroTargetY.value = 0
 }
 
+const onCtaMove = (event) => {
+  const rect = event.currentTarget.getBoundingClientRect()
+  const nx = (event.clientX - rect.left) / rect.width - 0.5
+  const ny = (event.clientY - rect.top) / rect.height - 0.5
+  ctaTiltTargetY.value = nx * 9
+  ctaTiltTargetX.value = -ny * 7
+}
+
+const onCtaLeave = () => {
+  ctaTiltTargetX.value = 0
+  ctaTiltTargetY.value = 0
+}
+
 const onWindowPointerMove = (event) => {
   heroGridActive.value = true
   updateHeroGridLight(event.clientX, event.clientY)
@@ -90,6 +115,8 @@ const onWindowScroll = () => {
 const smoothStep = () => {
   heroX.value += (heroTargetX.value - heroX.value) * 0.18
   heroY.value += (heroTargetY.value - heroY.value) * 0.18
+  ctaTiltX.value += (ctaTiltTargetX.value - ctaTiltX.value) * 0.22
+  ctaTiltY.value += (ctaTiltTargetY.value - ctaTiltY.value) * 0.22
   smoothScrollY.value += (targetScrollY.value - smoothScrollY.value) * 0.08
   motionRaf = requestAnimationFrame(smoothStep)
 }

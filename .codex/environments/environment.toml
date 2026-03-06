@@ -12,3 +12,12 @@ command = '''
 npm run build
 npm run preview
 '''
+
+[[actions]]
+name = "Build"
+icon = "tool"
+command = '''
+git add .
+git commit -m "Build" -a
+git push
+'''
