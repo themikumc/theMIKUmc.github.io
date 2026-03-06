@@ -96,12 +96,14 @@ const cardTransforms = ref({})
 const modalPanelEl = ref(null)
 const launchRect = ref(null)
 const isClosing = ref(false)
+const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
 const cardStyle = (id) => ({
   transform: cardTransforms.value[id] ?? 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
 })
 
 const onCardMove = (id, event) => {
+  if (!canHover()) return
   const rect = event.currentTarget.getBoundingClientRect()
   const nx = (event.clientX - rect.left) / rect.width - 0.5
   const ny = (event.clientY - rect.top) / rect.height - 0.5
@@ -109,6 +111,7 @@ const onCardMove = (id, event) => {
 }
 
 const onCardLeave = (id) => {
+  if (!canHover()) return
   cardTransforms.value[id] = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)'
 }
 

@@ -44,15 +44,17 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const tiltTransform = ref('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)')
 const copiedDiscord = ref(false)
 const copiedEmail = ref(false)
 let copiedDiscordTimer
 let copiedEmailTimer
+const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
 const onMove = (event) => {
+  if (!canHover()) return
   const rect = event.currentTarget.getBoundingClientRect()
   const nx = (event.clientX - rect.left) / rect.width - 0.5
   const ny = (event.clientY - rect.top) / rect.height - 0.5
@@ -94,6 +96,12 @@ const copyEmail = async () => {
     }, 620)
   } catch {}
 }
+
+onMounted(() => {
+  if (!canHover()) {
+    tiltTransform.value = 'none'
+  }
+})
 
 onBeforeUnmount(() => {
   window.clearTimeout(copiedDiscordTimer)
