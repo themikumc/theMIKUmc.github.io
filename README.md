@@ -39,3 +39,4 @@ Edit `src/data/reviews.js` and add a new object:
 
 Place your profile picture at `public/pfp.jpg`.
 The avatar is rendered as a circle with top-cropped positioning."# theMIKUmc.github.io" 
+"# theMIKUmc.github.io" 
