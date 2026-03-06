@@ -83,6 +83,7 @@ const onHeroLeave = () => {
 }
 
 const onCtaMove = (event) => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
   const rect = event.currentTarget.getBoundingClientRect()
   const nx = (event.clientX - rect.left) / rect.width - 0.5
   const ny = (event.clientY - rect.top) / rect.height - 0.5
@@ -120,6 +121,9 @@ onMounted(() => {
   prevBodyOverflowY = document.body.style.overflowY
   document.documentElement.style.overflowY = 'hidden'
   document.body.style.overflowY = 'hidden'
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    ctaTiltTransform.value = 'none'
+  }
   motionRaf = requestAnimationFrame(smoothStep)
   window.addEventListener('mousemove', onWindowPointerMove, { passive: true })
   window.addEventListener('mouseleave', onWindowPointerLeave)
