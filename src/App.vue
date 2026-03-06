@@ -47,8 +47,8 @@
           </div>
         </nav>
 
-        <Transition name="page-swap">
-          <div v-if="mobileMenuOpen" class="mt-4 grid gap-2 border border-line bg-black p-3 sm:hidden">
+        <Transition name="mobile-menu">
+          <div v-show="mobileMenuOpen" class="mobile-menu-panel mt-3 grid gap-2 border border-line bg-black p-3 sm:hidden">
             <router-link to="/" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" active-class="text-cyan-300" @click="mobileMenuOpen = false">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="M3 11.5 12 4l9 7.5"/>
