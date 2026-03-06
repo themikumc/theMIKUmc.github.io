@@ -30,22 +30,23 @@ body,
   overflow-x: hidden;
 }
 
-html::-webkit-scrollbar {
-  width: 8px;
+::-webkit-scrollbar {
+    width: 8px
 }
 
-html::-webkit-scrollbar-track {
-  background: #050505;
+::-webkit-scrollbar-track {
+    background: #050505
 }
 
-html::-webkit-scrollbar-thumb {
-  background: var(--color-cyan-accent);
-  border-radius: 4px;
+::-webkit-scrollbar-thumb {
+    background: var(--color-red-accent);
+    border-radius: 4px
 }
 
-html::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cyan-dark);
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-red-dark)
 }
+
 
 @keyframes riseUp {
   from {
@@ -215,7 +216,7 @@ html::-webkit-scrollbar-thumb:hover {
 
 .nav-shell {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   backdrop-filter: saturate(1.1);
 }
 
@@ -224,7 +225,7 @@ html::-webkit-scrollbar-thumb:hover {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10px;
   height: 2px;
   background: linear-gradient(90deg, #d8ffff, #9afcff, #72ecff, #67d6ff, #d8ffff);
   background-size: 220% 100%;
@@ -409,32 +410,38 @@ html::-webkit-scrollbar-thumb:hover {
 
 .mobile-menu-panel {
   overflow: hidden;
-  transform-origin: top;
 }
 
-.mobile-menu-enter-active,
-.mobile-menu-leave-active {
-  transition:
-    max-height 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.mobile-menu-enter-from,
-.mobile-menu-leave-to {
-  max-height: 0;
+.mobile-menu-shell {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.5rem);
   opacity: 0;
   transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 280ms ease-in-out,
+    transform 320ms ease-in-out;
+  z-index: 30;
 }
 
-.mobile-menu-enter-to,
-.mobile-menu-leave-from {
-  max-height: 18rem;
+.mobile-menu-shell-open {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 @media (max-width: 640px) {
+  .nav-shell {
+    margin-bottom: 2.5rem;
+    transition: margin-bottom 320ms ease-in-out;
+  }
+
+  .nav-shell.mobile-menu-open {
+    margin-bottom: 16rem;
+  }
+
   :root {
     --color-cyan-accent: #73e6ff;
     --color-cyan-dark: #56d6ff;

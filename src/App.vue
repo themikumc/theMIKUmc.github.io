@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-black text-white antialiased">
-    <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-6 sm:px-8">
-      <header class="nav-shell mb-10 border-b border-line pb-4 sm:pb-6">
+    <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-4 sm:px-8 sm:py-6">
+      <header class="nav-shell relative mb-10 pb-0 sm:pb-6" :class="{ 'mobile-menu-open': mobileMenuOpen }">
         <nav class="flex items-center justify-between text-base lowercase tracking-wide text-soft sm:text-lg">
           <span class="text-xl font-semibold text-white sm:text-2xl">miku</span>
           <button
@@ -47,8 +47,8 @@
           </div>
         </nav>
 
-        <Transition name="mobile-menu">
-          <div v-show="mobileMenuOpen" class="mobile-menu-panel mt-3 grid gap-2 border border-line bg-black p-3 sm:hidden">
+        <div class="mobile-menu-shell sm:hidden" :class="{ 'mobile-menu-shell-open': mobileMenuOpen }">
+          <div class="mobile-menu-panel grid gap-2 border border-line bg-black p-3">
             <router-link to="/" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" active-class="text-cyan-300" @click="mobileMenuOpen = false">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="M3 11.5 12 4l9 7.5"/>
@@ -76,7 +76,7 @@
               reviews
             </router-link>
           </div>
-        </Transition>
+        </div>
       </header>
 
       <main class="flex-1">
