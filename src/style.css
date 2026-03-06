@@ -443,25 +443,40 @@ body,
   }
 
   :root {
-    --color-cyan-accent: #73e6ff;
-    --color-cyan-dark: #56d6ff;
+    --color-cyan-accent: #96f1ff;
+    --color-cyan-dark: #76e7ff;
   }
 
   .name-fluid {
-    background-image: linear-gradient(120deg, #e1ffff 0%, #bffaff 35%, #97f2ff 66%, #d8ffff 100%);
-    text-shadow: 0 0 22px rgba(136, 246, 255, 0.5);
+    background-image: linear-gradient(120deg, #f2ffff 0%, #d8fdff 35%, #b9f8ff 66%, #ecffff 100%);
+    text-shadow: 0 0 26px rgba(146, 249, 255, 0.7);
   }
 
   .bright-cyan-text {
-    color: #dcffff;
-    text-shadow: 0 0 16px rgba(132, 244, 255, 0.75);
+    color: #efffff;
+    text-shadow: 0 0 18px rgba(140, 246, 255, 0.95);
   }
 
   .divider-flow {
-    box-shadow: 0 0 20px rgba(132, 244, 255, 0.95);
+    background-image: linear-gradient(90deg, #f2ffff 0%, #aaf8ff 45%, #7beaff 55%, #f4ffff 100%);
+    box-shadow: 0 0 24px rgba(140, 246, 255, 1);
   }
 
   .nav-shell::after {
-    filter: brightness(1.15) saturate(1.12);
+    filter: brightness(1.35) saturate(1.35);
+    box-shadow: 0 0 22px rgba(145, 248, 255, 0.95);
+  }
+
+  .text-soft {
+    color: #b8d9e8;
+  }
+
+  .icon-pack {
+    color: #a5eeff;
+  }
+
+  .avatar-aura::before {
+    background: radial-gradient(circle, rgba(156, 252, 255, 0.9) 0%, rgba(102, 239, 255, 0.72) 45%, transparent 74%);
+    filter: blur(12px);
   }
 }
