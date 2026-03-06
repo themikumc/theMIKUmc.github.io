@@ -6,7 +6,7 @@ name = "Playground"
 script = ""
 
 [[actions]]
-name = "Run"
+name = "Preview"
 icon = "run"
 command = '''
 npm run build
@@ -17,6 +17,7 @@ npm run preview
 name = "Build"
 icon = "tool"
 command = '''
+npm run build
 git add .
 git commit -m "Build" -a
 git push
