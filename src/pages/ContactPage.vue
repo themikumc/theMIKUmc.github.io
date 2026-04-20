@@ -7,7 +7,7 @@
       </svg>
       <span class="text-white">contact</span>
     </h1>
-    <p class="text-lg lowercase text-soft sm:text-xl">reach out for plugins, mods, performance tuning, and maintenance.</p>
+    <p class="text-lg lowercase text-soft sm:text-xl">reach out for plugins, mods, edits, and more!</p>
 
     <article
       class="border border-line bg-panel/70 p-10 transition-[transform,box-shadow] duration-150 ease-out will-change-transform hover:shadow-[inset_0_0_0_1px_rgba(140,245,255,0.55)] sm:p-12"
