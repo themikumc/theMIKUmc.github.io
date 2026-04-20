@@ -5,18 +5,18 @@ export const samples = [
     type: 'video',
     src: '/samples/pvp-core-showcase.mp4',
     poster: '/samples/pvp-core-thumb.jpg',
-    name: 'pvp core',
-    caption: 'ranked duels + kits',
-    description: 'custom duel queue system, async match handling, and anti-lag combat optimizations.'
+    name: 'sample0',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
   },
   {
     id: 2,
     category: 'dev',
     type: 'image',
     src: '/samples/skyblock-ui.jpg',
-    name: 'skyblock ui',
-    caption: 'custom gui flow',
-    description: 'clean inventory gui with upgrade trees, mission tracking, and economy views.'
+    name: 'sample01',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
   },
   {
     id: 3,
@@ -24,8 +24,37 @@ export const samples = [
     type: 'video',
     src: '/samples/mod-loader-tools.mp4',
     poster: '/samples/mod-loader-thumb.jpg',
-    name: 'mod loader tools',
-    caption: 'fabric + forge utility',
-    description: 'cross-loader shared code modules with runtime checks and lightweight command tools.'
+    name: 'sample02',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    id: 4,
+    category: 'editor',
+    type: 'video',
+    src: '/samples/pvp-core-showcase.mp4',
+    poster: '/samples/pvp-core-thumb.jpg',
+    name: 'sample0',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    id: 5,
+    category: 'editor',
+    type: 'image',
+    src: '/samples/skyblock-ui.jpg',
+    name: 'sample01',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    id: 6,
+    category: 'editor',
+    type: 'video',
+    src: '/samples/mod-loader-tools.mp4',
+    poster: '/samples/mod-loader-thumb.jpg',
+    name: 'sample02',
+    caption: 'lorem ipsum',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
   }
 ]
