@@ -162,7 +162,6 @@
 
           <div class="space-y-4">
             <p class="text-xl font-semibold lowercase text-white">{{ activeLinkSample.name }}</p>
-            <p class="text-sm lowercase tracking-wide text-soft">choose a platform</p>
 
             <div class="grid gap-3">
               <a
