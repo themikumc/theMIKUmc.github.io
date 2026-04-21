@@ -64,25 +64,6 @@
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
               />
 
-              <div
-                v-if="sample.type === 'external'"
-                class="pointer-events-none absolute inset-0 flex items-center justify-center gap-3 bg-black/35"
-              >
-                <span class="inline-flex items-center gap-2 border border-line bg-black/80 px-3 py-1.5 text-xs font-semibold lowercase tracking-[0.18em] text-white">
-                  <svg viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-red-400" aria-hidden="true">
-                    <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8Z"/>
-                    <path d="m10 15.5 5-3.5-5-3.5z" fill="currentColor" stroke="none"/>
-                  </svg>
-                  youtube
-                </span>
-                <span class="inline-flex items-center gap-2 border border-line bg-black/80 px-3 py-1.5 text-xs font-semibold lowercase tracking-[0.18em] text-white">
-                  <svg viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-cyan-300" aria-hidden="true">
-                    <path d="M14.5 4.5c.8 1.6 2 2.8 3.5 3.4v2.7a8 8 0 1 1-6.8-7.9v8.5a2.1 2.1 0 1 0 1.8 2.1V4.5h1.5Z"/>
-                  </svg>
-                  tiktok
-                </span>
-              </div>
-
               <div class="pointer-events-none absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                 <p class="absolute left-3 right-3 top-3 text-sm lowercase leading-relaxed text-white">
                   {{ sample.description }}
@@ -90,9 +71,34 @@
               </div>
             </div>
 
-            <div class="space-y-1 p-3">
-              <p class="text-base font-semibold lowercase text-white">{{ sample.name }}</p>
-              <p class="text-xs lowercase tracking-wide text-soft">{{ sample.caption }}</p>
+            <div class="space-y-2 p-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="space-y-1">
+                  <p class="text-base font-semibold lowercase text-white">{{ sample.name }}</p>
+                  <p class="text-xs lowercase tracking-wide text-soft">{{ sample.caption }}</p>
+                </div>
+
+                <div v-if="sample.type === 'external'" class="flex items-center gap-2">
+                  <a
+                    v-for="link in sample.links"
+                    :key="link.id"
+                    :href="link.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex h-9 w-9 items-center justify-center border border-line bg-black/80 text-white transition-colors duration-200 hover:border-cyan-300 hover:text-cyan-200"
+                    :aria-label="link.label"
+                    @click.stop
+                  >
+                    <svg v-if="link.id === 'youtube'" viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-red-400" aria-hidden="true">
+                      <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8Z"/>
+                      <path d="m10 15.5 5-3.5-5-3.5z" fill="currentColor" stroke="none"/>
+                    </svg>
+                    <svg v-else viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-cyan-300" aria-hidden="true">
+                      <path d="M14.5 4.5c.8 1.6 2 2.8 3.5 3.4v2.7a8 8 0 1 1-6.8-7.9v8.5a2.1 2.1 0 1 0 1.8 2.1V4.5h1.5Z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </button>
         </div>
@@ -167,7 +173,16 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-between border border-line bg-panel/70 px-4 py-3 text-sm font-semibold lowercase tracking-[0.16em] text-white transition-colors duration-200 hover:border-cyan-300 hover:text-cyan-200"
               >
-                <span>{{ link.label }}</span>
+                <span class="inline-flex items-center gap-2">
+                  <svg v-if="link.id === 'youtube'" viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-red-400" aria-hidden="true">
+                    <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8Z"/>
+                    <path d="m10 15.5 5-3.5-5-3.5z" fill="currentColor" stroke="none"/>
+                  </svg>
+                  <svg v-else viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-cyan-300" aria-hidden="true">
+                    <path d="M14.5 4.5c.8 1.6 2 2.8 3.5 3.4v2.7a8 8 0 1 1-6.8-7.9v8.5a2.1 2.1 0 1 0 1.8 2.1V4.5h1.5Z"/>
+                  </svg>
+                  <span>{{ link.label }}</span>
+                </span>
                 <span class="text-soft">open</span>
               </a>
             </div>
