@@ -15,12 +15,14 @@ export const samples = [
   {
     id: 2,
     category: 'dev',
-    type: 'video',
-    src: '/samples/ritualshopsystemvid.mp4',
-    poster: '/samples/ritualshowing.png',
+    type: 'external',
+    src: 'https://img.youtube.com/vi/3wanIjfMSzc/maxresdefault.jpg',
     name: 'R4rw\'s Shop',
     caption: 'shop/ritual system',
-    description: 'modular shop/ritual system allowing for creation of new recipes featuring a holographic ui and editor gui'
+    description: 'modular shop/ritual system allowing for creation of new recipes featuring a holographic ui and editor gui',
+    links: [
+      { id: 'youtube', label: 'youtube', href: 'https://youtu.be/3wanIjfMSzc' }
+    ]
   },
   {
     id: 3,
