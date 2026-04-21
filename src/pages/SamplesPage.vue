@@ -90,11 +90,11 @@
                     @click.stop
                   >
                     <svg v-if="link.id === 'youtube'" viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-red-400" aria-hidden="true">
-                      <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8Z"/>
-                      <path d="m10 15.5 5-3.5-5-3.5z" fill="currentColor" stroke="none"/>
+                      <rect x="3" y="6" width="18" height="12" rx="4"/>
+                      <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>
                     </svg>
                     <svg v-else viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-cyan-300" aria-hidden="true">
-                      <path d="M14.5 4.5c.8 1.6 2 2.8 3.5 3.4v2.7a8 8 0 1 1-6.8-7.9v8.5a2.1 2.1 0 1 0 1.8 2.1V4.5h1.5Z"/>
+                      <path d="M14 4v8.2a3.3 3.3 0 1 1-2.1-3.1V4.5c1.3 1.5 3 2.4 5.1 2.5v2.2A8 8 0 0 1 14 8.1V4z"/>
                     </svg>
                   </a>
                 </div>
@@ -175,11 +175,11 @@
               >
                 <span class="inline-flex items-center gap-2">
                   <svg v-if="link.id === 'youtube'" viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-red-400" aria-hidden="true">
-                    <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8Z"/>
-                    <path d="m10 15.5 5-3.5-5-3.5z" fill="currentColor" stroke="none"/>
+                    <rect x="3" y="6" width="18" height="12" rx="4"/>
+                    <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>
                   </svg>
                   <svg v-else viewBox="0 0 24 24" class="icon-pack h-4 w-4 text-cyan-300" aria-hidden="true">
-                    <path d="M14.5 4.5c.8 1.6 2 2.8 3.5 3.4v2.7a8 8 0 1 1-6.8-7.9v8.5a2.1 2.1 0 1 0 1.8 2.1V4.5h1.5Z"/>
+                    <path d="M14 4v8.2a3.3 3.3 0 1 1-2.1-3.1V4.5c1.3 1.5 3 2.4 5.1 2.5v2.2A8 8 0 0 1 14 8.1V4z"/>
                   </svg>
                   <span>{{ link.label }}</span>
                 </span>
