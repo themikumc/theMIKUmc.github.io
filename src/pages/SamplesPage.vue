@@ -189,6 +189,32 @@
         </div>
       </div>
     </Transition>
+
+    <Transition name="sample-modal">
+      <div
+        v-if="activeEmbedSample"
+        class="sample-modal-root fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+        @click.self="closeEmbedSample"
+      >
+        <div class="relative aspect-video w-[92vw] max-w-6xl border border-line bg-black">
+          <button
+            type="button"
+            class="absolute right-3 top-3 z-10 border border-line bg-black px-4 py-1.5 text-sm lowercase text-white transition-all duration-200 ease-out hover:scale-105 hover:border-cyan-300 hover:text-cyan-200 hover:shadow-[0_0_14px_rgba(126,247,255,0.45)]"
+            @click="closeEmbedSample"
+          >
+            close
+          </button>
+          <iframe
+            :src="activeEmbedSample.embedUrl"
+            :title="activeEmbedSample.name"
+            class="h-full w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </div>
+    </Transition>
   </section>
 </template>
 
@@ -198,6 +224,7 @@ import { samples } from '../data/samples'
 
 const activeSample = ref(null)
 const activeLinkSample = ref(null)
+const activeEmbedSample = ref(null)
 const activeCategory = ref('dev')
 const cardTransforms = ref({})
 const modalPanelEl = ref(null)
@@ -226,8 +253,30 @@ const onCardLeave = (id) => {
   cardTransforms.value[id] = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)'
 }
 
+const getYouTubeEmbedUrl = (href) => {
+  try {
+    const url = new URL(href)
+    let id = ''
+    if (url.hostname.includes('youtu.be')) {
+      id = url.pathname.replace('/', '')
+    } else if (url.hostname.includes('youtube.com')) {
+      id = url.searchParams.get('v') ?? ''
+    }
+    return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : ''
+  } catch {
+    return ''
+  }
+}
+
 const openSample = async (sample, event) => {
   if (sample.type === 'external') {
+    if (sample.links?.length === 1 && sample.links[0].id === 'youtube') {
+      const embedUrl = getYouTubeEmbedUrl(sample.links[0].href)
+      if (embedUrl) {
+        activeEmbedSample.value = { name: sample.name, embedUrl }
+        return
+      }
+    }
     activeLinkSample.value = sample
     return
   }
@@ -284,5 +333,9 @@ const closeSample = async () => {
 
 const closeLinkSample = () => {
   activeLinkSample.value = null
+}
+
+const closeEmbedSample = () => {
+  activeEmbedSample.value = null
 }
 </script>
