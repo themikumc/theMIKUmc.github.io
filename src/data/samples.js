@@ -15,11 +15,12 @@ export const samples = [
   {
     id: 2,
     category: 'dev',
-    type: 'image',
-    src: '/samples/skyblock-ui.jpg',
-    name: 'sample01',
-    caption: 'lorem ipsum',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+    type: 'video',
+    src: '/samples/ritualShopSystem.mkv',
+    poster: '/samples/ritualshowing.png',
+    name: 'R4rw\'s Shop',
+    caption: 'shop/ritual system',
+    description: 'modular shop/ritual system allowing for creation of new recipes featuring a holographic ui and editor gui'
   },
   {
     id: 3,
