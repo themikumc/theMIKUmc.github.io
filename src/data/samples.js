@@ -16,7 +16,7 @@ export const samples = [
     id: 2,
     category: 'dev',
     type: 'video',
-    src: '/samples/ritualShopSystem.mkv',
+    src: '/samples/ritualshopsystemvid.mp4',
     poster: '/samples/ritualshowing.png',
     name: 'R4rw\'s Shop',
     caption: 'shop/ritual system',
