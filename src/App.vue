@@ -32,13 +32,13 @@
               </svg>
               contact
             </router-link>
-            <router-link to="/samples" class="inline-flex items-center gap-2 transition-colors duration-300 ease-out hover:text-cyan-300" active-class="text-cyan-300">
+            <router-link to="/samples/dev" class="inline-flex items-center gap-2 transition-colors duration-300 ease-out hover:text-cyan-300" :class="{ 'text-cyan-300': route.path.startsWith('/samples') }">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="M3 8a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               </svg>
               samples
             </router-link>
-            <router-link to="/reviews" class="inline-flex items-center gap-2 transition-colors duration-300 ease-out hover:text-cyan-300" active-class="text-cyan-300">
+            <router-link to="/reviews/dev" class="inline-flex items-center gap-2 transition-colors duration-300 ease-out hover:text-cyan-300" :class="{ 'text-cyan-300': route.path.startsWith('/reviews') }">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="m12 3 2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.9z"/>
               </svg>
@@ -63,13 +63,13 @@
               </svg>
               contact
             </router-link>
-            <router-link to="/samples" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" active-class="text-cyan-300" @click="mobileMenuOpen = false">
+            <router-link to="/samples/dev" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" :class="{ 'text-cyan-300': route.path.startsWith('/samples') }" @click="mobileMenuOpen = false">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="M3 8a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               </svg>
               samples
             </router-link>
-            <router-link to="/reviews" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" active-class="text-cyan-300" @click="mobileMenuOpen = false">
+            <router-link to="/reviews/dev" class="inline-flex items-center gap-2 px-2 py-2 transition-colors duration-200 hover:text-cyan-300" :class="{ 'text-cyan-300': route.path.startsWith('/reviews') }" @click="mobileMenuOpen = false">
               <svg viewBox="0 0 24 24" class="icon-pack icon-nav" aria-hidden="true">
                 <path d="m12 3 2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.9z"/>
               </svg>

@@ -13,7 +13,7 @@
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="activeCategory = 'dev'"
+          @click="setCategory('dev')"
         >
           dev
         </button>
@@ -21,7 +21,7 @@
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'editor' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="activeCategory = 'editor'"
+          @click="setCategory('editor')"
         >
           editor
         </button>
@@ -44,12 +44,20 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ReviewCard from '../components/ReviewCard.vue'
 import { reviews } from '../data/reviews'
 
-const activeCategory = ref('dev')
+const route = useRoute()
+const router = useRouter()
+
+const activeCategory = computed(() => (route.params.category === 'editor' ? 'editor' : 'dev'))
 
 const filteredReviews = computed(() =>
   reviews.filter((review) => (review.category ?? 'dev') === activeCategory.value)
 )
+
+const setCategory = (category) => {
+  router.push(`/reviews/${category}`)
+}
 </script>

@@ -13,7 +13,7 @@
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="activeCategory = 'dev'"
+          @click="setCategory('dev')"
         >
           dev
         </button>
@@ -21,7 +21,7 @@
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'editor' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="activeCategory = 'editor'"
+          @click="setCategory('editor')"
         >
           editor
         </button>
@@ -220,21 +220,29 @@
 
 <script setup>
 import { computed, nextTick, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { samples } from '../data/samples'
 
 const activeSample = ref(null)
 const activeLinkSample = ref(null)
 const activeEmbedSample = ref(null)
-const activeCategory = ref('dev')
 const cardTransforms = ref({})
 const modalPanelEl = ref(null)
 const launchRect = ref(null)
 const isClosing = ref(false)
 const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
+const route = useRoute()
+const router = useRouter()
+
+const activeCategory = computed(() => (route.params.category === 'editor' ? 'editor' : 'dev'))
 
 const filteredSamples = computed(() =>
   samples.filter((sample) => (sample.category ?? 'dev') === activeCategory.value)
 )
+
+const setCategory = (category) => {
+  router.push(`/samples/${category}`)
+}
 
 const cardStyle = (id) => ({
   transform: cardTransforms.value[id] ?? 'perspective(1000px) rotateX(0deg) rotateY(0deg)'

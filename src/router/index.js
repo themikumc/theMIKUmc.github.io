@@ -6,8 +6,10 @@ import ContactPage from '../pages/ContactPage.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomePage },
-  { path: '/samples', name: 'samples', component: SamplesPage },
-  { path: '/reviews', name: 'reviews', component: ReviewsPage },
+  { path: '/samples', redirect: '/samples/dev' },
+  { path: '/samples/:category(dev|editor)', name: 'samples', component: SamplesPage },
+  { path: '/reviews', redirect: '/reviews/dev' },
+  { path: '/reviews/:category(dev|editor)', name: 'reviews', component: ReviewsPage },
   { path: '/contact', name: 'contact', component: ContactPage }
 ]
 
