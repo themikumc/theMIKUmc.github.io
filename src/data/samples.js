@@ -23,17 +23,5 @@ export const samples = [
     links: [
       { id: 'youtube', label: 'youtube', href: 'https://youtu.be/S1XqeZD8dUQ' }
     ]
-  },
-  {
-    id: 3,
-    category: 'dev',
-    type: 'external',
-    src: 'https://img.youtube.com/vi/3wanIjfMSzc/maxresdefault.jpg',
-    name: 'R4rw\'s Shop',
-    caption: 'shop/ritual system',
-    description: 'modular shop/ritual system allowing for creation of new recipes featuring a holographic ui and editor gui',
-    links: [
-      { id: 'youtube', label: 'youtube', href: 'https://youtu.be/3wanIjfMSzc' }
-    ]
   }
 ]
