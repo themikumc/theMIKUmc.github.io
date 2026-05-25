@@ -17,7 +17,16 @@
     </div>
     <p class="mb-6 text-lg leading-relaxed text-slate-100 sm:text-xl">"{{ review.quote }}"</p>
     <footer class="space-y-2">
-      <p class="text-lg font-semibold text-white sm:text-xl">{{ review.name }}</p>
+      <a
+        v-if="review.href"
+        :href="review.href"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-lg font-semibold text-white transition-colors duration-200 hover:text-cyan-200 sm:text-xl"
+      >
+        {{ review.name }}
+      </a>
+      <p v-else class="text-lg font-semibold text-white sm:text-xl">{{ review.name }}</p>
       <p class="text-sm lowercase tracking-wide text-soft">{{ review.role }}</p>
     </footer>
   </article>

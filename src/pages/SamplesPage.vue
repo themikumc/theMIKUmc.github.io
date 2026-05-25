@@ -12,18 +12,18 @@
         <button
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
-          :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="setCategory('dev')"
-        >
-          dev
-        </button>
-        <button
-          type="button"
-          class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'editor' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
           @click="setCategory('editor')"
         >
           editor
+        </button>
+        <button
+          type="button"
+          class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
+          :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
+          @click="setCategory('dev')"
+        >
+          dev
         </button>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <div v-if="filteredSamples.length" class="grid gap-4 md:grid-cols-2">
           <button
             v-for="sample in filteredSamples"
-            :key="sample.id"
+            :key="`${activeCategory}-${sample.id}`"
             type="button"
             class="sample-card group border border-line bg-panel/70 text-left transition-transform duration-150 ease-out will-change-transform"
             :style="cardStyle(sample.id)"
@@ -221,7 +221,7 @@
 <script setup>
 import { computed, nextTick, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { samples } from '../data/samples'
+import { sampleGroups } from '../data/samples'
 
 const activeSample = ref(null)
 const activeLinkSample = ref(null)
@@ -234,11 +234,9 @@ const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').m
 const route = useRoute()
 const router = useRouter()
 
-const activeCategory = computed(() => (route.params.category === 'editor' ? 'editor' : 'dev'))
+const activeCategory = computed(() => (route.params.category === 'dev' ? 'dev' : 'editor'))
 
-const filteredSamples = computed(() =>
-  samples.filter((sample) => (sample.category ?? 'dev') === activeCategory.value)
-)
+const filteredSamples = computed(() => sampleGroups[activeCategory.value] ?? [])
 
 const setCategory = (category) => {
   router.push(`/samples/${category}`)

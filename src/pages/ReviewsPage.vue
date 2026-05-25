@@ -12,18 +12,18 @@
         <button
           type="button"
           class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
-          :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
-          @click="setCategory('dev')"
-        >
-          dev
-        </button>
-        <button
-          type="button"
-          class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
           :class="activeCategory === 'editor' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
           @click="setCategory('editor')"
         >
           editor
+        </button>
+        <button
+          type="button"
+          class="px-4 py-2 text-sm font-semibold lowercase tracking-[0.18em] transition-colors duration-200"
+          :class="activeCategory === 'dev' ? 'bg-cyan-950/70 text-white' : 'text-soft hover:text-cyan-200'"
+          @click="setCategory('dev')"
+        >
+          dev
         </button>
       </div>
     </div>
@@ -31,7 +31,7 @@
     <Transition name="page-swap" mode="out-in">
       <div :key="activeCategory">
         <div v-if="filteredReviews.length" class="grid gap-6 md:grid-cols-2">
-          <ReviewCard v-for="review in filteredReviews" :key="review.id" :review="review" />
+          <ReviewCard v-for="review in filteredReviews" :key="`${activeCategory}-${review.id}`" :review="review" />
         </div>
 
         <div v-else class="border border-line bg-panel/50 p-8 text-sm lowercase tracking-wide text-soft">
@@ -46,16 +46,14 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import ReviewCard from '../components/ReviewCard.vue'
-import { reviews } from '../data/reviews'
+import { reviewGroups } from '../data/reviews'
 
 const route = useRoute()
 const router = useRouter()
 
-const activeCategory = computed(() => (route.params.category === 'editor' ? 'editor' : 'dev'))
+const activeCategory = computed(() => (route.params.category === 'dev' ? 'dev' : 'editor'))
 
-const filteredReviews = computed(() =>
-  reviews.filter((review) => (review.category ?? 'dev') === activeCategory.value)
-)
+const filteredReviews = computed(() => reviewGroups[activeCategory.value] ?? [])
 
 const setCategory = (category) => {
   router.push(`/reviews/${category}`)
