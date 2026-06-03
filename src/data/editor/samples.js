@@ -28,14 +28,5 @@ export const editorSamples = [
     caption: 'mc longform editing',
     description: 'minecraft dating show w/ itzrealme',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RP_0qZgvf0Y' }]
-  },
-  {
-    id: 4,
-    type: 'external',
-    src: 'https://img.youtube.com/vi/1jp7iR4qLpA/maxresdefault.jpg',
-    name: 'MCTiers Owner Interview',
-    caption: 'mc intro edit',
-    description: 'minecraft interview w/ encrico miller (parts past the intro are NOT edited by me)',
-    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/1jp7iR4qLpA' }]
   }
 ]
