@@ -23,10 +23,19 @@ export const editorSamples = [
   {
     id: 3,
     type: 'external',
-    src: 'https://img.youtube.com/vi/RP_0qZgvf0Y/maxresdefault.jpg',
+    src: 'https://img.youtube.com/vi/JALCqyugXm4/maxresdefault.jpg',
     name: 'skied dating show ❤️ (ItzRealMe)',
     caption: 'mc longform editing',
     description: 'minecraft dating show w/ itzrealme',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/JALCqyugXm4' }]
+  },
+  {
+    id: 4,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/RP_0qZgvf0Y/maxresdefault.jpg',
+    name: 'toxic pros 1v1 (k1rbe & gallerywalk)',
+    caption: 'mc longform editing',
+    description: '2 toxic cpvp ht1s 1v1',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RP_0qZgvf0Y' }]
   }
 ]
