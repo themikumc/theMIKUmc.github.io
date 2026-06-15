@@ -37,5 +37,14 @@ export const editorSamples = [
     caption: 'mc longform editing',
     description: '2 toxic cpvp ht1s 1v1',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RP_0qZgvf0Y' }]
+  },
+  {
+    id: 5,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/Tl5mBpJX0FQ/maxresdefault.jpg',
+    name: 'skied dating show intro ❤️ (coldified)',
+    caption: 'mc intro editing',
+    description: 'minecraft dating show intro w/ coldified',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/Tl5mBpJX0FQ' }]
   }
 ]
