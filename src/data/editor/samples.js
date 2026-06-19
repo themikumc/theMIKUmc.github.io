@@ -46,5 +46,14 @@ export const editorSamples = [
     caption: 'mc intro editing',
     description: 'minecraft dating show intro w/ coldified',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/Tl5mBpJX0FQ' }]
+  },
+  {
+    id: 6,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/cHR9RypSvBY/maxresdefault.jpg',
+    name: 'AI PvP Coach Intro',
+    caption: 'mc intro editing',
+    description: 'Claude Coach Intro',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cHR9RypSvBY' }]
   }
 ]
