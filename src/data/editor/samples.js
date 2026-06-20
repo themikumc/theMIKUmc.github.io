@@ -51,9 +51,18 @@ export const editorSamples = [
     id: 6,
     type: 'external',
     src: 'https://img.youtube.com/vi/cHR9RypSvBY/maxresdefault.jpg',
-    name: 'AI PvP Coach Intro',
+    name: 'ai pvp coach intro',
     caption: 'mc intro editing',
-    description: 'Claude Coach Intro',
+    description: 'claude coach intro',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cHR9RypSvBY' }]
+  },
+  {
+    id: 7,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/RkDReErAXwo/maxresdefault.jpg',
+    name: 'larpsteal smp intro',
+    caption: 'mc intro editing',
+    description: 'larprap2 intro',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RkDReErAXwo' }]
   }
 ]

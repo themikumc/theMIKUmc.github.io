@@ -22,6 +22,8 @@ html {
   overflow-x: hidden;
   background: #000;
   scrollbar-width: thin;
+  scrollbar-color: var(--color-cyan-accent) #050505;
+  scrollbar-gutter: stable;
   overscroll-behavior-y: none;
 }
 
@@ -36,20 +38,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #050505
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-red-accent);
-    border-radius: 4px
+  background: var(--color-cyan-accent);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-red-dark)
+  background: var(--color-cyan-dark);
 }
 
 
