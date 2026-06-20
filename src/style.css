@@ -13,12 +13,10 @@
 body {
   margin: 0;
   background: #000;
-  overflow: hidden;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-y: auto;
   overflow-x: hidden;
   background: #000;
   scrollbar-width: thin;

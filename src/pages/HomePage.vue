@@ -54,8 +54,6 @@ const smoothScrollY = ref(0)
 const targetScrollY = ref(0)
 const ctaTiltTransform = ref('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)')
 let motionRaf = 0
-let prevHtmlOverflowY = ''
-let prevBodyOverflowY = ''
 
 const heroFollowStyle = computed(() => ({
   '--grid-parallax': `${smoothScrollY.value * 0.42}px`,
@@ -121,10 +119,6 @@ const smoothStep = () => {
 }
 
 onMounted(() => {
-  prevHtmlOverflowY = document.documentElement.style.overflowY
-  prevBodyOverflowY = document.body.style.overflowY
-  document.documentElement.style.overflowY = 'hidden'
-  document.body.style.overflowY = 'hidden'
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     ctaTiltTransform.value = 'none'
   }
@@ -137,8 +131,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  document.documentElement.style.overflowY = prevHtmlOverflowY || 'auto'
-  document.body.style.overflowY = prevBodyOverflowY || 'hidden'
   cancelAnimationFrame(motionRaf)
   window.removeEventListener('mousemove', onWindowPointerMove)
   window.removeEventListener('mouseleave', onWindowPointerLeave)
