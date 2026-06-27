@@ -50,19 +50,28 @@ export const editorSamples = [
   {
     id: 6,
     type: 'external',
-    src: 'https://img.youtube.com/vi/cHR9RypSvBY/maxresdefault.jpg',
-    name: 'ai pvp coach intro',
+    src: 'https://img.youtube.com/vi/RkDReErAXwo/maxresdefault.jpg',
+    name: 'larpsteal smp intro',
     caption: 'mc intro editing',
-    description: 'claude coach intro',
-    links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cHR9RypSvBY' }]
+    description: 'lovely larprap2 intro',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RkDReErAXwo' }]
   },
   {
     id: 7,
     type: 'external',
-    src: 'https://img.youtube.com/vi/RkDReErAXwo/maxresdefault.jpg',
-    name: 'larpsteal smp intro',
+    src: 'https://img.youtube.com/vi/cHR9RypSvBY/maxresdefault.jpg',
+    name: 'ai pvp coach intro',
     caption: 'mc intro editing',
-    description: 'larprap2 intro',
-    links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RkDReErAXwo' }]
-  }
+    description: 'claude coaches pvp',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cHR9RypSvBY' }]
+  },
+  {
+    id: 8,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/cfLFTfwj6RE/maxresdefault.jpg',
+    name: 'inject vs mod comparison intro',
+    caption: 'mc intro editing',
+    description: 'prestige client comparison',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cfLFTfwj6RE' }]
+  },
 ]
