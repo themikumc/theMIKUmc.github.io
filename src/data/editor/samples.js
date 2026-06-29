@@ -74,4 +74,13 @@ export const editorSamples = [
     description: 'prestige client comparison',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cfLFTfwj6RE' }]
   },
+  {
+    id: 9,
+    type: 'external',
+    src: 'https://img.youtube.com/vi/Ak7seb0jb1I/maxresdefault.jpg',
+    name: '$1 vs $1000 coach',
+    caption: 'mc intro editing',
+    description: 'hiring pvp coaches',
+    links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=Ak7seb0jb1I' }]
+  },
 ]
