@@ -5,6 +5,7 @@ export const editorSamples = [
     src: '/pfpbig.jpg',
     name: 'theMIKUmc',
     caption: 'youtube & tiktok channels',
+    description: 'my channel, containing many well-edited shorts!',
     links: [
       { id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/@themikumc' },
       { id: 'tiktok', label: 'tiktok', href: 'https://www.tiktok.com/@themikumc' }
