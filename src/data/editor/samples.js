@@ -5,7 +5,6 @@ export const editorSamples = [
     src: '/pfpbig.jpg',
     name: 'theMIKUmc',
     caption: 'youtube & tiktok channels',
-    description: 'my channel, containing many well-edited shorts!',
     links: [
       { id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/@themikumc' },
       { id: 'tiktok', label: 'tiktok', href: 'https://www.tiktok.com/@themikumc' }
@@ -17,7 +16,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/S1XqeZD8dUQ/maxresdefault.jpg',
     name: 'minecraft pvp 💙',
     caption: 'my first edit',
-    description: 'minecraft pvp edit',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/S1XqeZD8dUQ' }]
   },
   {
@@ -26,7 +24,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/JALCqyugXm4/maxresdefault.jpg',
     name: 'skied dating show ❤️ (ItzRealMe)',
     caption: 'mc longform editing',
-    description: 'minecraft dating show w/ itzrealme',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/JALCqyugXm4' }]
   },
   {
@@ -35,7 +32,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/RP_0qZgvf0Y/maxresdefault.jpg',
     name: 'toxic pros 1v1 (k1rbe & gallerywalk)',
     caption: 'mc longform editing',
-    description: '2 toxic cpvp ht1s 1v1',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RP_0qZgvf0Y' }]
   },
   {
@@ -44,7 +40,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/Tl5mBpJX0FQ/maxresdefault.jpg',
     name: 'skied dating show intro ❤️ (coldified)',
     caption: 'mc intro editing',
-    description: 'minecraft dating show intro w/ coldified',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/Tl5mBpJX0FQ' }]
   },
   {
@@ -53,7 +48,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/RkDReErAXwo/maxresdefault.jpg',
     name: 'larpsteal smp intro',
     caption: 'mc intro editing',
-    description: 'lovely larprap2 intro',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://youtu.be/RkDReErAXwo' }]
   },
   {
@@ -62,7 +56,6 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/cHR9RypSvBY/maxresdefault.jpg',
     name: 'ai pvp coach intro',
     caption: 'mc intro editing',
-    description: 'claude coaches pvp',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cHR9RypSvBY' }]
   },
   {
@@ -71,16 +64,14 @@ export const editorSamples = [
     src: 'https://img.youtube.com/vi/cfLFTfwj6RE/maxresdefault.jpg',
     name: 'inject vs mod comparison intro',
     caption: 'mc intro editing',
-    description: 'prestige client comparison',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=cfLFTfwj6RE' }]
   },
   {
     id: 9,
     type: 'external',
     src: 'https://img.youtube.com/vi/Ak7seb0jb1I/maxresdefault.jpg',
-    name: '$1 vs $1000 coach',
+    name: '$1 vs $1000 coach intro',
     caption: 'mc intro editing',
-    description: 'hiring pvp coaches',
     links: [{ id: 'youtube', label: 'youtube', href: 'https://www.youtube.com/watch?v=Ak7seb0jb1I' }]
   },
 ]
